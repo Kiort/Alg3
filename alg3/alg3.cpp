@@ -77,4 +77,46 @@ int main(){
         cout << endl;
     } 
 
+    int rebr=0;
+
+    for (int i = 0; i < more;i++) {
+        for (int j = 0; j < i; j++) {
+            if (matrix[i][j] != 0)
+                rebr++;
+        }
+    }
+
+    cout<<endl <<"Количество вершин = "<<more <<"  Количество ребер = "<<rebr<<endl;
+
+
+    rebr -= more - 1;
+
+    cout << "Необходимо удалить "<< rebr <<" ребра"<< endl;
+
+    double min = 0;
+
+    for (int i = 0; i < more; i++) {
+        min = 6000000;
+        for (int j = 0; j < more; j++) {
+            if (matrix[i][j] < min && matrix[i][j] != 0) {
+                min = matrix[i][j];
+            }
+            else { 
+                matrix[i][j] = 0;
+                matrix[j][i] = 0;                       
+            }
+        }
+    }
+
+    cout << endl; cout << endl; cout << endl; cout << endl;
+
+
+    for (int i = 0; i < more; i++) {
+        for (int j = 0; j < more; j++) {
+            cout << matrix[i][j] << "  ";
+        }
+        cout << endl;
+    }
+
+
 }
