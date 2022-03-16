@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <fstream>
+#include <ostream>
 #include <math.h>
 
 using namespace std;
@@ -54,20 +55,15 @@ int main(){
 
 
     ifstream file;
+    ofstream inter;
     
     double kord;
     file.open("C:\\Users\\Asus\\Documents\\Bonch\\sem2\\algoritm\\Alg3\\matrix.txt");
+    inter.open("C:\\Users\\Asus\\Documents\\Bonch\\sem2\\algoritm\\Alg3\\inter.txt");
 
     if (!file)
-    {
-        cout << "Файл не открыт\n\n";
         return -1;
-    }
-    else
-    {
-        cout << "Все ОК! Файл открыт!\n\n";
-    }
-
+    
    
     for (int i = 0; i < more; i++){
         for (int j = 0; j < more;j++) {
@@ -76,6 +72,10 @@ int main(){
         }
         cout << endl;
     } 
+    file.close();
+
+
+
 
     int rebr=0;
 
@@ -114,9 +114,37 @@ int main(){
     for (int i = 0; i < more; i++) {
         for (int j = 0; j < more; j++) {
             cout << matrix[i][j] << "  ";
+            inter << matrix[i][j]<<" ";
+
+        }
+        cout << endl;
+        inter << endl;
+    }
+
+
+    inter << endl<< endl<< endl;
+
+
+    file.open("C:\\Users\\Asus\\Documents\\Bonch\\sem2\\algoritm\\Alg3\\matrix.txt");
+
+    if (!file)
+        return -1;
+    
+
+
+    cout << endl;
+
+    for (int i = 0; i < more; i++) {
+        for (int j = 0; j < more; j++) {
+            file >> matrix[i][j];
+            cout << matrix[i][j] << "  ";
         }
         cout << endl;
     }
+    file.close();
+
+
+
 
 
 }
